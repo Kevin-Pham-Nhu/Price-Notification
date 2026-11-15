@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Price Watch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Price Watch</h1>
+      <p id="updated" class="muted">Loading…</p>
+    </div>
+    <div class="actions">
+      <button id="btn-settings" class="btn">Settings</button>
+      <button id="btn-add" class="btn primary">Add product</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="tiles" class="tiles" aria-label="Summary"></section>
+
+    <div class="filters" id="filters" hidden>
+      <div class="chips" role="group" aria-label="Show">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="reached" aria-pressed="false">Target reached</button>
+        <button class="chip" data-filter="issues" aria-pressed="false">Store problems</button>
+      </div>
+      <label class="sort">Sort by
+        <select id="sort">
+          <option value="gap">Closest to target</option>
+          <option value="discount">Biggest discount vs RRP</option>
+          <option value="price">Lowest price</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <dialog id="dlg-detail" class="wide"></dialog>
+  <dialog id="dlg-form"></dialog>
+  <dialog id="dlg-settings"></dialog>
+  <dialog id="dlg-confirm"></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
